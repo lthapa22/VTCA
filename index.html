@@ -246,9 +246,13 @@
     </tbody>
   </table>
 
-  <div id="grand-total" style="margin-top: 15px; font: 13px inter, sans-serif; font-weight: bold;">Total Amount: AUD $0.00<br><br>
-Payment must be made prior to collection via EFT.<br>
-VTCA Banking Details: Bendigo Bank (BSB:633-000, Account No:154930168)</div>
+  <div id="grand-total" style="margin-top: 20px; font: 13px inter, sans-serif; font-weight: bold;">
+  Total Amount: AUD $<span id="total-value">0.00</span>
+  </div>
+  <br> 
+  <div style="font: 13px inter, sans-serif; font-weight: bold;">
+Payment must be made via EFT prior to collection.<br>VTCA Banking Details: Bendigo Bank (BSB: 633-000, Account No: 154930168)
+  </div>
 
   <script>
     function calculateTotal(selectElem) {
@@ -262,7 +266,7 @@ VTCA Banking Details: Bendigo Bank (BSB:633-000, Account No:154930168)</div>
       document.querySelectorAll('.total-amount').forEach(cell => {
         grandTotal += parseFloat(cell.textContent) || 0;
       });
-      document.getElementById('grand-total').innerHTML = `<b>TOTAL: AUD $${grandTotal.toFixed(2)}</b>`;
+      document.getElementById('total-value').textContent = grandTotal.toFixed(2);
     }
   </script>
 
